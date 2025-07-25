@@ -11,3 +11,4 @@ WORKDIR /app
 COPY --from=build /app/target/content_management_system-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "echo SPRING_DATASOURCE_URL=$SPRING_DATASOURCE_URL && java -jar app.jar"]
